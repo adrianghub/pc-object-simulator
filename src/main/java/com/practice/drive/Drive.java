@@ -1,4 +1,6 @@
-package com.practice;
+package com.practice.drive;
+
+import com.practice.File;
 
 public interface Drive {
     void addFile(File file);

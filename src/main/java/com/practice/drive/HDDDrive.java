@@ -1,7 +1,10 @@
-package com.practice;
+package com.practice.drive;
+
+import com.practice.File;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class HDDDrive implements Drive {
 
@@ -15,14 +18,15 @@ public class HDDDrive implements Drive {
     @Override
     public void displayFiles() {
         for (File file: files) {
-            System.out.println(file);
+            System.out.println(file.getName());
         }
-
-        //        files.forEach(System.out::println);
     }
 
     @Override
     public File findFile(String name) {
-        return null;
+        Optional<File> foundFile = files.stream()
+                .filter(file -> file.getName().equals(name))
+                .findFirst();
+        return foundFile.orElseThrow();
     }
 }
