@@ -1,4 +1,4 @@
 package com.practice;
 
-public interface Drive {
+public class File {
 }
