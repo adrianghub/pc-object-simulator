@@ -2,6 +2,8 @@ package com.practice;
 
 import com.practice.drive.HDDDrive;
 import com.practice.drive.SSDDrive;
+import com.practice.usbdevice.MemoryStick;
+import com.practice.usbdevice.Mouse;
 
 import java.util.Arrays;
 
@@ -13,18 +15,28 @@ public class App {
 
         Computer computer = new Computer(monitor, hddDrive);
 
-        for (String s1 : Arrays.asList("japko1.jpg", "korona1.jpg", "slub1.jpg")) {
-            ssdDrive.addFile(new File(s1));
-        }
-        for (String s : Arrays.asList("chorwacja1.jpg", "kosc1.jpg")) {
-            hddDrive.addFile(new File(s));
-        }
+//        for (String s1 : Arrays.asList("japko1.jpg", "korona1.jpg", "slub1.jpg")) {
+//            ssdDrive.addFile(new File(s1));
+//        }
+//        for (String s : Arrays.asList("chorwacja1.jpg", "kosc1.jpg")) {
+//            hddDrive.addFile(new File(s));
+//        }
+//
+//        System.out.println("SSD Files: ");
+//        ssdDrive.displayFiles();
+//        System.out.println();
+//        System.out.println("HDD Files: ");
+//        hddDrive.displayFiles();
 
-        System.out.println("SSD Files: ");
-        ssdDrive.displayFiles();
-        System.out.println();
-        System.out.println("HDD Files: ");
-        hddDrive.displayFiles();
+        MemoryStick pendrive = new MemoryStick("Pendrive");
+        Mouse mouse = new Mouse("Mouse");
+
+        computer.addUsbDevice(pendrive);
+//        computer.addUsbDevice(mouse);
+
+        pendrive.eject();
+        computer.removeUsbDevice(pendrive);
+//        computer.removeUsbDevice(mouse);
 
     }
 }

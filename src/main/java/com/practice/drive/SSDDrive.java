@@ -1,6 +1,6 @@
 package com.practice.drive;
 
-import com.practice.File;
+import com.practice.file.File;
 
 import java.util.Collection;
 import java.util.HashMap;

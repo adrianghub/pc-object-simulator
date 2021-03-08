@@ -1,6 +1,6 @@
 package com.practice.drive;
 
-import com.practice.File;
+import com.practice.file.File;
 
 import java.util.ArrayList;
 import java.util.List;
