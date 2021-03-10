@@ -1,42 +1,29 @@
 package com.practice;
 
+import com.practice.drive.Drive;
 import com.practice.drive.HDDDrive;
 import com.practice.drive.SSDDrive;
-import com.practice.usbdevice.MemoryStick;
-import com.practice.usbdevice.Mouse;
-
-import java.util.Arrays;
+import com.practice.file.File;
+import com.practice.file.imageFile.GIFImageFile;
+import com.practice.file.imageFile.JPGImageFile;
+import com.practice.file.musicFile.MP3MusicFile;
 
 public class App {
     public static void main(String[] args) {
-        Monitor monitor = new Monitor();
-        SSDDrive ssdDrive = new SSDDrive();
-        HDDDrive hddDrive = new HDDDrive();
+        GIFImageFile gifImageFile = new GIFImageFile("image.gif", 100);
+        JPGImageFile jpgImageFile = new JPGImageFile("image.jpg", 320, 40);
+        MP3MusicFile mp3MusicFile = new MP3MusicFile("music.mp3", 2000, "Gracjan", "Pain in the Jungle", 50);
 
-        Computer computer = new Computer(monitor, hddDrive);
+        Drive ssdDrive = new SSDDrive();
+        Drive hddDrive = new HDDDrive();
 
-//        for (String s1 : Arrays.asList("japko1.jpg", "korona1.jpg", "slub1.jpg")) {
-//            ssdDrive.addFile(new File(s1));
-//        }
-//        for (String s : Arrays.asList("chorwacja1.jpg", "kosc1.jpg")) {
-//            hddDrive.addFile(new File(s));
-//        }
-//
-//        System.out.println("SSD Files: ");
-//        ssdDrive.displayFiles();
-//        System.out.println();
-//        System.out.println("HDD Files: ");
-//        hddDrive.displayFiles();
+        ssdDrive.addFile(gifImageFile);
+        ssdDrive.addFile(jpgImageFile);
+        ssdDrive.addFile(mp3MusicFile);
 
-        MemoryStick pendrive = new MemoryStick("Pendrive");
-        Mouse mouse = new Mouse("Mouse");
+        ssdDrive.displayFiles();
+        File file = ssdDrive.findFile("image.jpg");
 
-        computer.addUsbDevice(pendrive);
-//        computer.addUsbDevice(mouse);
-
-        pendrive.eject();
-        computer.removeUsbDevice(pendrive);
-//        computer.removeUsbDevice(mouse);
-
+        System.out.println(file.getSize());
     }
 }
