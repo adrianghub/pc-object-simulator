@@ -1,25 +1,12 @@
 package com.practice.file.imageFile;
 
-import com.practice.file.File;
+import com.practice.file.AbstractFile;
 import com.practice.file.FileType;
 
-public abstract class AbstractImageFile implements File {
-    protected String name;
-    protected int size;
+public abstract class AbstractImageFile extends AbstractFile {
 
     public AbstractImageFile(String name, int size) {
-        this.name = name;
-        this.size = size;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
-    @Override
-    public int getSize() {
-        return this.size;
+        super(name, size);
     }
 
     @Override
